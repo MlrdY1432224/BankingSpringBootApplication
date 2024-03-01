@@ -23,6 +23,7 @@ node{
     }
     
     stage('Maven Build'){
+	sh "mvn compile"    
         sh "mvn clean package"        
     }
     

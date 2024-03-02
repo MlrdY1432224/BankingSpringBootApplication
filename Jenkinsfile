@@ -41,6 +41,8 @@ node{
     }    
 	
 	stage('Ansible Playbook Execution'){
-		ansiblePlaybook credentialsId: 'ansiblejenkins', disableHostKeyChecking: true, extras: dockerImageTag=$dockerHubUser/$containerName:$tag', inventory: 'inventory.yaml', playbook: 'kubernetesDeploy.yaml', vaultTmpPath: ''
+		sshagent(['ansiblejenkins']) {
+    			sh "ansible-playbook -i inventory.yaml kubernetesDeploy.yaml -e httpPort=$httpPort -e containerName=$containerName -e dockerImageTag=$dockerHubUser/$containerName:$tag"	
+		}	
 	}
 }

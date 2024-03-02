@@ -41,6 +41,6 @@ node{
     }    
 	
 	stage('Ansible Playbook Execution'){
-		ansiblePlaybook credentialsId: 'ansiblejenkins', disableHostKeyChecking: true, extras: 'httpPort=$httpPort, containerName=$containerName, dockerImageTag=$dockerHubUser/$containerName:$tag', inventory: 'inventory.yaml', playbook: 'kubernetesDeploy.yaml', vaultTmpPath: ''
+		ansiblePlaybook credentialsId: 'ansiblejenkins', disableHostKeyChecking: true, extras: dockerImageTag=$dockerHubUser/$containerName:$tag', inventory: 'inventory.yaml', playbook: 'kubernetesDeploy.yaml', vaultTmpPath: ''
 	}
 }

@@ -41,6 +41,6 @@ node{
     }    
 	
 	stage('Ansible Playbook Execution'){
-		runuser " -u ansible ansible-playbook -i inventory.yaml kubernetesDeploy.yaml -e httpPort=$httpPort -e containerName=$containerName -e dockerImageTag=$dockerHubUser/$containerName:$tag"
+		runuser -u ansible "ansible-playbook -i inventory.yaml kubernetesDeploy.yaml -e httpPort=$httpPort -e containerName=$containerName -e dockerImageTag=$dockerHubUser/$containerName:$tag"
 	}
 }

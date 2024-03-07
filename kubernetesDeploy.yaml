@@ -6,7 +6,7 @@
     ignore_errors: true
 
   - name: Performing Deployment of {{ dockerImageTag }}
-    command: "kubectl create deployment {{ containerName }} --image=docker.io/{{ dockerImageTag }} --port={{ httpPort }} --target-port={{ httpPort }} --type=NodePort"
+    command: "kubectl create deployment {{ containerName }} --image=docker.io/{{ dockerImageTag }} --port={{ httpPort }}"
 
   - name: Get Container List
     command: "kubectl get pods -o wide"

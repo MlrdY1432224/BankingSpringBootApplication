@@ -6,7 +6,7 @@ node{
         echo 'Initialize Environment'
         tag="3.0"
 	withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
-		dockerHubUser="MlrdY1432224"
+		dockerHubUser="mlrdy1432224"
         }
 	containerName="bankingapp"
 	httpPort="8989"
